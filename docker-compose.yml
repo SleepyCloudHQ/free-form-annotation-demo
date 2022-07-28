@@ -1,0 +1,47 @@
+version: '3.9'
+services:
+  traefik:
+    image: "traefik:v2.8"
+    command:
+      # - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  backend:
+    image: ffat-backend
+    restart: always
+    volumes:
+      - ./licence:/licence
+    environment:
+      # - SQLITE_FILE_PATH=storage.db 
+      - LICENCE_FILE_PATH=/licence/licence.txt
+      - MYSQL_HOST=db
+      - MYSQL_USER=user
+      - MYSQL_PASS=user_pass
+      - MYSQL_DBNAME=ffat
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=Host(`backend.ffat.localhost`)"
+      - "traefik.http.routers.backend.entrypoints=web"
+
+  db:
+    image: mariadb
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_pass
+      - MYSQL_PASSWORD=user_pass
+      - MYSQL_USER=user
+      - MYSQL_DATABASE=ffat
+
+  # frontend:
+  #   image: ffat-frontend
