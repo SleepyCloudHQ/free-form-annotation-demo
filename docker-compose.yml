@@ -20,12 +20,13 @@ services:
     volumes:
       - ./licence:/licence
     environment:
-      # - SQLITE_FILE_PATH=storage.db 
+      # - SQLITE_FILE_PATH=storage.db
       - LICENCE_FILE_PATH=/licence/licence.txt
       - MYSQL_HOST=db
       - MYSQL_USER=user
       - MYSQL_PASS=user_pass
       - MYSQL_DBNAME=ffat
+      - ALLOWED_ORIGIN=http://ffat.localhost
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.backend.rule=Host(`backend.ffat.localhost`)"
@@ -43,5 +44,11 @@ services:
       - MYSQL_USER=user
       - MYSQL_DATABASE=ffat
 
-  # frontend:
-  #   image: ffat-frontend
+  frontend:
+    image: ffat-frontend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`ffat.localhost`)"
+      - "traefik.http.routers.frontend.entrypoints=web"
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend.ffat.localhost
