@@ -2,3 +2,5 @@ db/*
 !db/.keep
 licence/*
 !licence/.keep
+data/*
+!data/.keep

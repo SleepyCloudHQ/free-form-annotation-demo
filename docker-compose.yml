@@ -19,6 +19,7 @@ services:
     restart: always
     volumes:
       - ./licence:/licence
+      - ./data:/root/data
     environment:
       # - SQLITE_FILE_PATH=storage.db
       - LICENCE_FILE_PATH=/licence/licence.txt
