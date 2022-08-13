@@ -114,6 +114,7 @@ Flags:
 * (optional) `-e` list of predefined entity tag options separated by `,` (e.g.: `-e entity1,entity2,..`)
 * (optional) `-r` list of predefined relationship tag options separated by `,` (e.g.: `-r relationship1,relationship2,...`)
 
+The structure of the import data is described in [import\_data\_structure.md](import_data_structure.md) and an example of import data is given in [data/example\_import\_data.json](data/example_import_data.json).
 
 # Exporting data
 To export data run the following command:
@@ -126,5 +127,6 @@ Flags:
 * `-f` file path to location where the data should be exported
 * `-d` the ID of the dataset to be exported
 
+The structure of the exported data is described in [export\_data\_structure.md](export_data_structure.md) and an example of exported data is given in [data/example\_exported\_data.json](data/example_exported_data.json).
 
 
