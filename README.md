@@ -111,8 +111,8 @@ Flags:
 
 * `-f` file path to json file to be imported
 * `-n` name of the dataset
-* (optional) `-e` list of predefined entity tag options separated by `,`
-* (optional) `-r` list of predefined relationship tag options separated by `,`
+* (optional) `-e` list of predefined entity tag options separated by `,` (e.g.: `-e entity1,entity2,..`)
+* (optional) `-r` list of predefined relationship tag options separated by `,` (e.g.: `-r relationship1,relationship2,...`)
 
 
 # Exporting data
