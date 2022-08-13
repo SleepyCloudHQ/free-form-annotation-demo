@@ -4,3 +4,5 @@ licence/*
 !licence/.keep
 data/*
 !data/.keep
+!data/example_import_data.json
+!data/example_exported_data.json
