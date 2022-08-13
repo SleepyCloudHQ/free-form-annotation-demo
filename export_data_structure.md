@@ -26,4 +26,4 @@ Hence an **Entity** object has the following structure:
 | tag | string \| null | tag given to the entity (e.g. NOUN, VERB or any custom tag) |
 | color | string \| null | hex color string, determines the highlight color of the entity |
 | notes | string \| null | any additional information about the entity |
-| content | string | 
+| content | string | Text of the entity |
