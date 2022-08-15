@@ -15,7 +15,8 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   backend:
-    image: ffat-backend
+    # image: ffat-backend
+    image: igorpidik/ffat-backend:v0.1.0
     restart: always
     volumes:
       - ./licence:/licence
@@ -46,7 +47,8 @@ services:
       - MYSQL_DATABASE=ffat
 
   frontend:
-    image: ffat-frontend
+    # image: ffat-frontend
+    image: igorpidik/ffat-frontend:v0.1.0
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.rule=Host(`ffat.localhost`)"
