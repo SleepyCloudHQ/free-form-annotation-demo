@@ -16,7 +16,7 @@ services:
 
   backend:
     # image: ffat-backend
-    image: igorpidik/ffat-backend:v0.1.0
+    image: igorpidik/ffat-backend:v0.1.1
     restart: always
     volumes:
       - ./licence:/licence
@@ -48,7 +48,7 @@ services:
 
   frontend:
     # image: ffat-frontend
-    image: igorpidik/ffat-frontend:v0.1.0
+    image: igorpidik/ffat-frontend:v0.1.1
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.rule=Host(`ffat.localhost`)"
